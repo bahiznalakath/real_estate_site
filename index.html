@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeqKer | Real Estate Content & Marketing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Color Theme - Option 2 (Cultural Warmth) */
+            --chalk-white: #F2F1EE;
+            --soft-sand: #EFE9E2;
+            --warm-taupe: #C7BFB4;
+            --limestone: #CFCBC2;
+            --espresso-brown: #2A1F1A;
+            --carbon-black: #1A1A1A;
+            --burnished-brass: #9B7A57;
+            --aged-bronze: #8C6A4A;
+            
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing */
+            --section-padding: 80px 0;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--soft-sand);
+            color: var(--espresso-brown);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--espresso-brown);
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--burnished-brass);
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .italic {
+            font-style: italic;
+            font-family: var(--font-heading);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--soft-sand);
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(199, 191, 180, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--espresso-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--burnished-brass);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--burnished-brass);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        
+        nav a {
+            color: var(--espresso-brown);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--burnished-brass);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after, nav a.active:after {
+            width: 100%;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--burnished-brass);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--burnished-brass);
+            color: white;
+            font-size: 0.8rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cta-button {
+            background-color: var(--espresso-brown);
+            color: var(--soft-sand);
+            padding: 14px 32px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            border: 1px solid var(--espresso-brown);
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--espresso-brown);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: var(--section-padding);
+            background-color: var(--soft-sand);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--espresso-brown);
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--burnished-brass);
+            margin-bottom: 40px;
+            display: block;
+        }
+        
+        /* Customize Section */
+        .customize-section {
+            padding: var(--section-padding);
+            background-color: var(--chalk-white);
+        }
+        
+        .customize-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .customize-options {
+            background-color: var(--soft-sand);
+            padding: 40px;
+            border-radius: 2px;
+        }
+        
+        .option-group {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(199, 191, 180, 0.3);
+        }
+        
+        .option-group:last-child {
+            border-bottom: none;
+        }
+        
+        .option-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .option-title {
+            font-size: 1.3rem;
+            color: var(--espresso-brown);
+        }
+        
+        .option-price {
+            font-weight: 600;
+            color: var(--burnished-brass);
+            font-size: 1.1rem;
+        }
+        
+        .option-description {
+            color: var(--espresso-brown);
+            opacity: 0.8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .option-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--warm-taupe);
+            border-radius: 0;
+            overflow: hidden;
+            width: fit-content;
+        }
+        
+        .quantity-btn {
+            background: var(--chalk-white);
+            border: none;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            color: var(--espresso-brown);
+        }
+        
+        .quantity-btn:hover {
+            background: var(--warm-taupe);
+        }
+        
+        .quantity-value {
+            width: 60px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--espresso-brown);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--warm-taupe);
+            transition: .4s;
+            border-radius: 0;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--chalk-white);
+            transition: .4s;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: var(--burnished-brass);
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+        
+        /* Cart Sidebar */
+        .cart-sidebar {
+            background-color: var(--soft-sand);
+            padding: 40px;
+            border: 1px solid rgba(199, 191, 180, 0.3);
+            position: sticky;
+            top: 120px;
+        }
+        
+        .cart-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--espresso-brown);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--burnished-brass);
+        }
+        
+        .cart-items {
+            margin-bottom: 30px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .cart-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(199, 191, 180, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-item-name {
+            font-weight: 500;
+            color: var(--espresso-brown);
+        }
+        
+        .cart-item-qty {
+            color: var(--burnished-brass);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--espresso-brown);
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--warm-taupe);
+            font-style: italic;
+        }
+        
+        .cart-summary {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px solid var(--burnished-brass);
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: var(--espresso-brown);
+        }
+        
+        .summary-row.total {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(199, 191, 180, 0.3);
+        }
+        
+        .checkout-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--espresso-brown);
+            color: var(--chalk-white);
+            padding: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 1px solid var(--espresso-brown);
+            margin-top: 25px;
+            cursor: pointer;
+        }
+        
+        .checkout-button:hover {
+            background-color: transparent;
+            color: var(--espresso-brown);
+        }
+        
+        .checkout-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .checkout-button:disabled:hover {
+            background-color: var(--espresso-brown);
+            color: var(--chalk-white);
+        }
+        
+        /* Packages Section */
+        .packages-section {
+            padding: var(--section-padding);
+            background-color: var(--soft-sand);
+        }
+        
+        .packages-intro {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .package-card {
+            background-color: var(--chalk-white);
+            padding: 35px 30px;
+            border: 1px solid rgba(199, 191, 180, 0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            box-shadow: 0 15px 30px rgba(42, 31, 26, 0.08);
+            border-color: var(--burnished-brass);
+        }
+        
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--burnished-brass);
+            color: var(--chalk-white);
+            padding: 6px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .package-name {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--espresso-brown);
+            text-align: center;
+        }
+        
+        .package-price {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--burnished-brass);
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            color: var(--warm-taupe);
+            font-weight: 400;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(199, 191, 180, 0.2);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .package-features li i {
+            color: var(--burnished-brass);
+            margin-right: 12px;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--burnished-brass);
+            color: var(--chalk-white);
+            padding: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid var(--burnished-brass);
+            cursor: pointer;
+        }
+        
+        .add-to-cart:hover {
+            background-color: transparent;
+            color: var(--burnished-brass);
+        }
+        
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(42, 31, 26, 0.8);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: var(--chalk-white);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--espresso-brown);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--burnished-brass);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--espresso-brown);
+            color: var(--warm-taupe);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--chalk-white);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-family: var(--font-heading);
+        }
+        
+        .footer-column p {
+            color: var(--warm-taupe);
+            margin-bottom: 25px;
+            max-width: 400px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--warm-taupe);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--burnished-brass);
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 12px;
+            color: var(--burnished-brass);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            color: var(--warm-taupe);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--burnished-brass);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(199, 191, 180, 0.2);
+            color: var(--warm-taupe);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .customize-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .cart-sidebar {
+                position: static;
+                margin-top: 40px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .customize-options, .cart-sidebar {
+                padding: 25px;
+            }
+            
+            .option-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-archway"></i>
+                Teq<span>Ker</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#customize">Customize</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-bag" style="font-size: 1.3rem; color: var(--espresso-brown);"></i>
+                    <div class="cart-count" id="cart-count">0</div>
+                </div>
+                <a href="#customize" class="cta-button">Build Your Plan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Real Estate Content & Marketing</h1>
+                <span class="hero-subtitle">Visual content & digital marketing for interior and real estate brands.</span>
+                <p>We help interior and real estate brands attract the right audience through high-quality visual content and strategic digital marketing. Build your custom package with our interactive tool below.</p>
+                <a href="#customize" class="cta-button">Start Customizing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section" id="packages">
+        <div class="container">
+            <div class="packages-intro">
+                <h2>Pre-Built Packages</h2>
+                <p>Choose from our carefully curated packages or build your own custom plan. All packages include a minimum 3-month commitment for management services and 2 rounds of revisions.</p>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Content Package A -->
+                <div class="package-card">
+                    <div class="package-badge">CONTENT</div>
+                    <h3 class="package-name">Basic Production</h3>
+                    <div class="package-price">₹18,000 – ₹20,000 <span>/ month or shoot</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 1 shoot day (photo + video)</li>
+                        <li><i class="fas fa-check"></i> 2 professional reels</li>
+                        <li><i class="fas fa-check"></i> 8 edited photos</li>
+                        <li><i class="fas fa-check"></i> Colour correction & grading</li>
+                        <li><i class="fas fa-check"></i> Social-ready formats</li>
+                    </ul>
+                    <button class="add-to-cart" data-package="content-a" data-price-low="18000" data-price-high="20000" data-type="content">Add to Cart</button>
+                </div>
+                
+                <!-- Content Package B -->
+                <div class="package-card">
+                    <div class="package-badge">CONTENT</div>
+                    <h3 class="package-name">Active Production</h3>
+                    <div class="package-price">₹28,000 – ₹32,000 <span>/ month or shoot</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> 1–2 shoot days</li>
+                        <li><i class="fas fa-check"></i> 4 reels (details + walkthroughs)</li>
+                        <li><i class="fas fa-check"></i> 12–15 edited photos</li>
+                        <li><i class="fas fa-check"></i> Customized Reel cover</li>
+                        <li><i class="fas fa-check"></i> Visual consistency</li>
+                    </ul>
+                    <button class="add-to-cart" data-package="content-b" data-price-low="28000" data-price-high="32000" data-type="content">Add to Cart</button>
+                </div>
+                
+                <!-- Management Package 2 -->
+                <div class="package-card">
+                    <div class="package-badge">MANAGEMENT</div>
+                    <h3 class="package-name">Growth Management</h3>
+                    <div class="package-price">₹15,000 – ₹18,000 <span>/ month</span></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Content calendar</li>
+                        <li><i class="fas fa-check"></i> Caption writing & hashtags</li>
+                        <li><i class="fas fa-check"></i> Stories planning & posting</li>
+                        <li><i class="fas fa-check"></i> Engagement handling</li>
+                        <li><i class="fas fa-check"></i> Monthly performance insights</li>
+                    </ul>
+                    <button class="add-to-cart" data-package="management-2" data-price-low="15000" data-price-high="18000" data-type="management">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customize Section -->
+    <section class="customize-section" id="customize">
+        <div class="container">
+            <h2>Customize Your Package</h2>
+            <p style="margin-bottom: 40px;">Build your own custom package by selecting the services you need. Your cart will update in real-time.</p>
+            
+            <div class="customize-container">
+                <!-- Customization Options -->
+                <div class="customize-options">
+                    <!-- Content Production Options -->
+                    <div class="option-group">
+                        <div class="option-header">
+                            <h3 class="option-title">Content Production</h3>
+                            <span class="option-price">Select Base Package</span>
+                        </div>
+                        <p class="option-description">Choose your base content production package. All packages include shoot days, reels, photos, and professional editing.</p>
+                        
+                        <div class="option-controls" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="content-none" name="content-package" value="none" checked>
+                                <label for="content-none" style="cursor: pointer;">No content package (build custom)</label>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="content-a" name="content-package" value="a">
+                                <label for="content-a" style="cursor: pointer;">Package A: Basic Production (₹18,000 – ₹20,000)</label>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="content-b" name="content-package" value="b">
+                                <label for="content-b" style="cursor: pointer;">Package B: Active Production (₹28,000 – ₹32,000)</label>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="content-c" name="content-package" value="c">
+                                <label for="content-c" style="cursor: pointer;">Package C: High-Volume (₹40,000 – ₹50,000)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Services -->
+                    <div class="option-group">
+                        <div class="option-header">
+                            <h3 class="option-title">Additional Shoot Days</h3>
+                            <span class="option-price">+₹8,000 / day</span>
+                        </div>
+                        <p class="option-description">Add extra shoot days beyond what's included in your selected package.</p>
+                        <div class="option-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" id="shoot-minus">-</button>
+                                <span class="quantity-value" id="shoot-quantity">0</span>
+                                <button class="quantity-btn" id="shoot-plus">+</button>
+                            </div>
+                            <span>Extra shoot days: <strong id="shoot-total">0</strong></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Reels -->
+                    <div class="option-group">
+                        <div class="option-header">
+                            <h3 class="option-title">Additional Reels</h3>
+                            <span class="option-price">+₹1,500 / reel</span>
+                        </div>
+                        <p class="option-description">Add more professional reels beyond your package allowance.</p>
+                        <div class="option-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" id="reel-minus">-</button>
+                                <span class="quantity-value" id="reel-quantity">0</span>
+                                <button class="quantity-btn" id="reel-plus">+</button>
+                            </div>
+                            <span>Extra reels: <strong id="reel-total">0</strong></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Management -->
+                    <div class="option-group">
+                        <div class="option-header">
+                            <h3 class="option-title">Social Media Management</h3>
+                            <span class="option-price">Select Management Level</span>
+                        </div>
+                        <p class="option-description">Choose your social media management package for planning, posting, and engagement.</p>
+                        
+                        <div class="option-controls" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="management-none" name="management-package" value="none" checked>
+                                <label for="management-none" style="cursor: pointer;">No management package</label>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="management-1" name="management-package" value="1">
+                                <label for="management-1" style="cursor: pointer;">Management 1: Presence (₹10,000 – ₹12,000)</label>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                                <input type="radio" id="management-2" name="management-package" value="2">
+                                <label for="management-2" style="cursor: pointer;">Management 2: Growth (₹15,000 – ₹18,000)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Paid Ads -->
+                    <div class="option-group">
+                        <div class="option-header">
+                            <h3 class="option-title">Paid Ads Management</h3>
+                            <span class="option-price">+₹8,000 – ₹12,000 / month</span>
+                        </div>
+                        <p class="option-description">Campaign setup, creative alignment, monitoring, and optimization. Ad spend is separate.</p>
+                        <div class="option-controls">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="ads-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span>Add Paid Ads Management</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Analytics -->
+                    <div class="option-group">
+                        <div class="option-header">
+                            <h3 class="option-title">Advanced Analytics & Reporting</h3>
+                            <span class="option-price">+₹3,000 / month</span>
+                        </div>
+                        <p class="option-description">Detailed monthly analytics report with insights, recommendations, and competitor analysis.</p>
+                        <div class="option-controls">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="analytics-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span>Add Advanced Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Sidebar -->
+                <div class="cart-sidebar">
+                    <h3 class="cart-title">Your Custom Package</h3>
+                    
+                    <div class="cart-items" id="cart-items">
+                        <div class="cart-empty" id="cart-empty">Your cart is empty. Start adding services!</div>
+                        <!-- Cart items will be added here dynamically -->
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">₹0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Estimated Range</span>
+                            <span id="range">₹0 – ₹0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>3-Month Minimum*</span>
+                            <span id="three-month">₹0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Monthly Total</span>
+                            <span id="total">₹0</span>
+                        </div>
+                    </div>
+                    
+                    <button class="checkout-button" id="checkout-button" disabled>Proceed to Checkout</button>
+                    
+                    <p style="font-size: 0.85rem; color: var(--warm-taupe); margin-top: 15px; text-align: center;">
+                        *Minimum 3-month commitment for management services. Production can be billed monthly or per shoot.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="close-modal" id="close-modal">&times;</div>
+            <h2 style="margin-bottom: 30px;">Your Package Summary</h2>
+            
+            <div id="modal-items">
+                <!-- Items will be added here -->
+            </div>
+            
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--burnished-brass);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="font-weight: 600;">Monthly Total:</span>
+                    <span style="font-weight: 600; font-size: 1.2rem;" id="modal-total">₹0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <span>3-Month Commitment Total:</span>
+                    <span id="modal-three-month">₹0</span>
+                </div>
+                
+                <p style="font-size: 0.9rem; color: var(--warm-taupe); margin-bottom: 30px;">
+                    By proceeding, you agree to our minimum 3-month commitment for management services. Production can be billed monthly or per shoot based on your preference.
+                </p>
+                
+                <button class="checkout-button" id="final-checkout" style="margin-bottom: 15px;">Complete Purchase</button>
+                <button class="checkout-button" style="background-color: transparent; color: var(--espresso-brown);" id="continue-customizing">Continue Customizing</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TeqKer</h3>
+                    <p>We help interior and real estate brands attract the right audience through high-quality visual content and strategic digital marketing.</p>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> hello@teqker.com</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#customize">Customize</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TeqKer Real Estate Content & Marketing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pricing Data
+        const pricingData = {
+            contentPackages: {
+                a: { name: "Content Package A: Basic Production", low: 18000, high: 20000 },
+                b: { name: "Content Package B: Active Production", low: 28000, high: 32000 },
+                c: { name: "Content Package C: High-Volume Production", low: 40000, high: 50000 }
+            },
+            managementPackages: {
+                1: { name: "Management 1: Presence Management", low: 10000, high: 12000 },
+                2: { name: "Management 2: Growth Management", low: 15000, high: 18000 }
+            },
+            addOns: {
+                shootDay: { name: "Additional Shoot Day", price: 8000 },
+                reel: { name: "Additional Reel", price: 1500 },
+                ads: { name: "Paid Ads Management", low: 8000, high: 12000 },
+                analytics: { name: "Advanced Analytics & Reporting", price: 3000 }
+            }
+        };
+
+        // Cart State
+        let cart = {
+            items: [],
+            subtotalLow: 0,
+            subtotalHigh: 0
+        };
+
+        // DOM Elements
+        const cartCount = document.getElementById('cart-count');
+        const cartItems = document.getElementById('cart-items');
+        const cartEmpty = document.getElementById('cart-empty');
+        const subtotalEl = document.getElementById('subtotal');
+        const rangeEl = document.getElementById('range');
+        const threeMonthEl = document.getElementById('three-month');
+        const totalEl = document.getElementById('total');
+        const checkoutButton = document.getElementById('checkout-button');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalItems = document.getElementById('modal-items');
+        const modalTotal = document.getElementById('modal-total');
+        const modalThreeMonth = document.getElementById('modal-three-month');
+        const finalCheckout = document.getElementById('final-checkout');
+        const continueCustomizing = document.getElementById('continue-customizing');
+        
+        // Quantity Controls
+        const shootMinus = document.getElementById('shoot-minus');
+        const shootPlus = document.getElementById('shoot-plus');
+        const shootQuantity = document.getElementById('shoot-quantity');
+        const shootTotal = document.getElementById('shoot-total');
+        
+        const reelMinus = document.getElementById('reel-minus');
+        const reelPlus = document.getElementById('reel-plus');
+        const reelQuantity = document.getElementById('reel-quantity');
+        const reelTotal = document.getElementById('reel-total');
+        
+        // Package Selection
+        const contentPackages = document.querySelectorAll('input[name="content-package"]');
+        const managementPackages = document.querySelectorAll('input[name="management-package"]');
+        
+        // Toggles
+        const adsToggle = document.getElementById('ads-toggle');
+        const analyticsToggle = document.getElementById('analytics-toggle');
+        
+        // Add to Cart buttons for pre-built packages
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        // Initialize quantities
+        let shootDays = 0;
+        let extraReels = 0;
+        
+        // Event Listeners
+        cartIcon.addEventListener('click', openCartModal);
+        closeModal.addEventListener('click', closeCartModal);
+        checkoutButton.addEventListener('click', openCartModal);
+        finalCheckout.addEventListener('click', processCheckout);
+        continueCustomizing.addEventListener('click', closeCartModal);
+        
+        // Quantity controls
+        shootMinus.addEventListener('click', () => updateQuantity('shoot', -1));
+        shootPlus.addEventListener('click', () => updateQuantity('shoot', 1));
+        reelMinus.addEventListener('click', () => updateQuantity('reel', -1));
+        reelPlus.addEventListener('click', () => updateQuantity('reel', 1));
+        
+        // Package selection
+        contentPackages.forEach(radio => {
+            radio.addEventListener('change', updateCartFromCustomization);
+        });
+        
+        managementPackages.forEach(radio => {
+            radio.addEventListener('change', updateCartFromCustomization);
+        });
+        
+        // Toggles
+        adsToggle.addEventListener('change', updateCartFromCustomization);
+        analyticsToggle.addEventListener('click', updateCartFromCustomization);
+        
+        // Pre-built package buttons
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const packageId = this.getAttribute('data-package');
+                const priceLow = parseInt(this.getAttribute('data-price-low'));
+                const priceHigh = parseInt(this.getAttribute('data-price-high'));
+                const type = this.getAttribute('data-type');
+                
+                addPackageToCart(packageId, priceLow, priceHigh, type);
+            });
+        });
+        
+        // Initialize
+        updateCartDisplay();
+        
+        // Functions
+        function updateQuantity(type, change) {
+            if (type === 'shoot') {
+                shootDays = Math.max(0, shootDays + change);
+                shootQuantity.textContent = shootDays;
+                shootTotal.textContent = shootDays;
+            } else if (type === 'reel') {
+                extraReels = Math.max(0, extraReels + change);
+                reelQuantity.textContent = extraReels;
+                reelTotal.textContent = extraReels;
+            }
+            
+            updateCartFromCustomization();
+        }
+        
+        function updateCartFromCustomization() {
+            // Clear custom items from cart
+            cart.items = cart.items.filter(item => !item.isCustom);
+            
+            // Get selected content package
+            const selectedContent = document.querySelector('input[name="content-package"]:checked').value;
+            if (selectedContent !== 'none') {
+                const pkg = pricingData.contentPackages[selectedContent];
+                cart.items.push({
+                    id: `content-${selectedContent}`,
+                    name: pkg.name,
+                    priceLow: pkg.low,
+                    priceHigh: pkg.high,
+                    isCustom: true
+                });
+            }
+            
+            // Get selected management package
+            const selectedManagement = document.querySelector('input[name="management-package"]:checked').value;
+            if (selectedManagement !== 'none') {
+                const pkg = pricingData.managementPackages[selectedManagement];
+                cart.items.push({
+                    id: `management-${selectedManagement}`,
+                    name: pkg.name,
+                    priceLow: pkg.low,
+                    priceHigh: pkg.high,
+                    isCustom: true
+                });
+            }
+            
+            // Add extra shoot days
+            if (shootDays > 0) {
+                const totalPrice = shootDays * pricingData.addOns.shootDay.price;
+                cart.items.push({
+                    id: 'extra-shoot',
+                    name: `Additional Shoot Days (${shootDays})`,
+                    priceLow: totalPrice,
+                    priceHigh: totalPrice,
+                    isCustom: true
+                });
+            }
+            
+            // Add extra reels
+            if (extraReels > 0) {
+                const totalPrice = extraReels * pricingData.addOns.reel.price;
+                cart.items.push({
+                    id: 'extra-reels',
+                    name: `Additional Reels (${extraReels})`,
+                    priceLow: totalPrice,
+                    priceHigh: totalPrice,
+                    isCustom: true
+                });
+            }
+            
+            // Add paid ads if selected
+            if (adsToggle.checked) {
+                cart.items.push({
+                    id: 'paid-ads',
+                    name: pricingData.addOns.ads.name,
+                    priceLow: pricingData.addOns.ads.low,
+                    priceHigh: pricingData.addOns.ads.high,
+                    isCustom: true
+                });
+            }
+            
+            // Add analytics if selected
+            if (analyticsToggle.checked) {
+                cart.items.push({
+                    id: 'analytics',
+                    name: pricingData.addOns.analytics.name,
+                    priceLow: pricingData.addOns.analytics.price,
+                    priceHigh: pricingData.addOns.analytics.price,
+                    isCustom: true
+                });
+            }
+            
+            updateCartDisplay();
+        }
+        
+        function addPackageToCart(packageId, priceLow, priceHigh, type) {
+            // Check if already in cart
+            const existingIndex = cart.items.findIndex(item => item.id === packageId);
+            
+            if (existingIndex > -1) {
+                // Remove if already in cart
+                cart.items.splice(existingIndex, 1);
+            } else {
+                // Add to cart
+                let name = '';
+                if (packageId === 'content-a') name = 'Content Package A: Basic Production';
+                else if (packageId === 'content-b') name = 'Content Package B: Active Production';
+                else if (packageId === 'management-2') name = 'Management 2: Growth Management';
+                
+                cart.items.push({
+                    id: packageId,
+                    name: name,
+                    priceLow: priceLow,
+                    priceHigh: priceHigh,
+                    type: type
+                });
+            }
+            
+            updateCartDisplay();
+        }
+        
+        function updateCartDisplay() {
+            // Calculate totals
+            let subtotalLow = 0;
+            let subtotalHigh = 0;
+            
+            cart.items.forEach(item => {
+                subtotalLow += item.priceLow;
+                subtotalHigh += item.priceHigh;
+            });
+            
+            cart.subtotalLow = subtotalLow;
+            cart.subtotalHigh = subtotalHigh;
+            
+            // Update cart count
+            cartCount.textContent = cart.items.length;
+            
+            // Update cart items display
+            if (cart.items.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartItems.innerHTML = '';
+            } else {
+                cartEmpty.style.display = 'none';
+                
+                let itemsHTML = '';
+                cart.items.forEach((item, index) => {
+                    const priceText = item.priceLow === item.priceHigh 
+                        ? `₹${item.priceLow.toLocaleString()}` 
+                        : `₹${item.priceLow.toLocaleString()} – ₹${item.priceHigh.toLocaleString()}`;
+                    
+                    itemsHTML += `
+                        <div class="cart-item">
+                            <div>
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-qty">Monthly</div>
+                            </div>
+                            <div class="cart-item-price">${priceText}</div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = itemsHTML;
+            }
+            
+            // Update summary
+            const threeMonthLow = subtotalLow * 3;
+            const threeMonthHigh = subtotalHigh * 3;
+            
+            subtotalEl.textContent = `₹${subtotalLow.toLocaleString()} – ₹${subtotalHigh.toLocaleString()}`;
+            rangeEl.textContent = `₹${subtotalLow.toLocaleString()} – ₹${subtotalHigh.toLocaleString()}`;
+            threeMonthEl.textContent = `₹${threeMonthLow.toLocaleString()} – ₹${threeMonthHigh.toLocaleString()}`;
+            
+            // Calculate average for total display
+            const average = Math.round((subtotalLow + subtotalHigh) / 2);
+            totalEl.textContent = `₹${average.toLocaleString()}`;
+            
+            // Enable/disable checkout button
+            checkoutButton.disabled = cart.items.length === 0;
+        }
+        
+        function openCartModal() {
+            if (cart.items.length === 0) return;
+            
+            // Update modal content
+            let itemsHTML = '';
+            let subtotalLow = 0;
+            let subtotalHigh = 0;
+            
+            cart.items.forEach(item => {
+                subtotalLow += item.priceLow;
+                subtotalHigh += item.priceHigh;
+                
+                const priceText = item.priceLow === item.priceHigh 
+                    ? `₹${item.priceLow.toLocaleString()}` 
+                    : `₹${item.priceLow.toLocaleString()} – ₹${item.priceHigh.toLocaleString()}`;
+                
+                itemsHTML += `
+                    <div style="padding: 15px 0; border-bottom: 1px solid rgba(199, 191, 180, 0.3);">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div style="font-weight: 500;">${item.name}</div>
+                            <div>${priceText}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            const average = Math.round((subtotalLow + subtotalHigh) / 2);
+            const threeMonthTotal = average * 3;
+            
+            modalItems.innerHTML = itemsHTML;
+            modalTotal.textContent = `₹${average.toLocaleString()}`;
+            modalThreeMonth.textContent = `₹${threeMonthTotal.toLocaleString()}`;
+            
+            // Show modal
+            cartModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCartModal() {
+            cartModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function processCheckout() {
+            alert(`Thank you for your custom package! Your monthly total is approximately ${modalTotal.textContent}. A team member will contact you shortly to finalize details.`);
+            closeCartModal();
+            
+            // In a real implementation, this would submit a form or redirect to a checkout page
+        }
+        
+        // Close modal when clicking outside
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                closeCartModal();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
